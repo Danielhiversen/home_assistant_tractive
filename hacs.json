@@ -1,0 +1,7 @@
+{
+    "name": "Tractive",
+    "domains": [
+        "device_tracker"
+    ],
+    "iot_class": "Cloud Polling"
+}
