@@ -10,7 +10,23 @@ jobs:
   validate:
     runs-on: "ubuntu-latest"
     steps:
-      - uses: jpetrucciani/black-check@19.10b0
+      - uses: actions/checkout@v1
+      - name: black
+        uses: lgeiger/black-action@master
+        with:
+            args: .
+      - name: Check for modified files
+        id: git-check
+        run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
+      - name: Push changes
+        if: steps.git-check.outputs.modified == 'true'
+        run: |
+            git config --global user.name 'Daniel Hoyer'
+            git config --global user.email 'mail@dahoiv.net'
+            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+            git checkout `basename $GITHUB_REF`
+            git commit -am "Automated changes"
+            git push origin HEAD:`basename $GITHUB_REF`
       - name: Flake8 Code Linter
         uses: jonasrk/flake8-action@master
         with: 
