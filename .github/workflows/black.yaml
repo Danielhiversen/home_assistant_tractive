@@ -1,0 +1,17 @@
+name: Black Code Formatter
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  validate:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: jpetrucciani/black-check@19.10b0
+      - name: Flake8 Code Linter
+        uses: jonasrk/flake8-action@master
+        with: 
+          args: "--max-line-length=120 "
