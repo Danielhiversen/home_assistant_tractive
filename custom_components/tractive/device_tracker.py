@@ -169,13 +169,13 @@ class TractiveScanner:
                     resp.status,
                     resp.reason,
                 )
-                return []
+                return [], None
             result = await resp.json()
         except aiohttp.ClientError as err:
             _LOGGER.error("Error connecting to Tractives: %s ", err, exc_info=True)
             raise
         except asyncio.TimeoutError:
-            return []
+            return [], None
 
         time_from = max(result["first"], result["last"] - 3600 * 24)
 
@@ -194,7 +194,7 @@ class TractiveScanner:
                     resp.status,
                     resp.reason,
                 )
-                return []
+                return [], None
             result = await resp.json()
         except aiohttp.ClientError as err:
             _LOGGER.error("Error connecting to Tractives: %s ", err, exc_info=True)
