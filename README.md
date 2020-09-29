@@ -3,7 +3,7 @@
 [![GitHub Release][releases-shield]][releases]
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
 
-Custom component for using [Tractive](https://tractive.com/) heaters in Home Assistant.
+Custom component for using [Tractive](https://tractive.com/) gps in Home Assistant.
 
 [Support the developer](http://paypal.me/dahoiv)
 
