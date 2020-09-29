@@ -220,7 +220,7 @@ class TractiveScanner:
                 return
 
             latitude, longitude = point.pop("latlong")
-            battery = hw_report.pop("battery_level")
+            battery = hw_report.get("battery_level")
             hw_report.pop("_id")
             hw_report.pop("_type")
             hw_report.pop("report_id")
