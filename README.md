@@ -9,7 +9,7 @@ Custom component for using [Tractive](https://tractive.com/) heaters in Home Ass
 
 
 ## Install
-Use [hacs](https://hacs.xyz/) or copy the files to the custom_components folder in Home Assistant config.
+Use [hacs](https://hacs.xyz/docs/faq/custom_repositories) or copy the files to the custom_components folder in Home Assistant config.
 
 ## Configuration 
 
