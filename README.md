@@ -1,7 +1,7 @@
 # Tractive
 ![Validate with hassfest](https://github.com/Danielhiversen/home_assistant_tractive/workflows/Validate%20with%20hassfest/badge.svg)
 [![GitHub Release][releases-shield]][releases]
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
+[![hacs_badge][hacs-shield]][hacs]
 
 Custom component for using [Tractive](https://tractive.com/) gps in Home Assistant.
 
@@ -9,7 +9,7 @@ Custom component for using [Tractive](https://tractive.com/) gps in Home Assista
 
 
 ## Install
-Use [hacs](https://hacs.xyz/docs/faq/custom_repositories) or copy the files to the custom_components folder in Home Assistant config.
+Use [hacs](https://hacs.xyz/) or copy the files to the custom_components folder in Home Assistant config.
 
 ## Configuration 
 
