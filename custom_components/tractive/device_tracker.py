@@ -210,14 +210,17 @@ class TractiveScanner:
                 await self.get_user_credentials()
                 hw_report, result = await self._fetch_tracker_data(tracker_id)
                 if not result:
+                    _LOGGER.error("No data")
                     return
 
             points = result[0]
             if not points:
-                return
-            point = points[0]
+                _LOGGER.error("No points")
+                continue
+            point = points[-1]
             if point["pos_uncertainty"] > self.max_gps_accuracy:
-                return
+                _LOGGER.warning("High uncertainty, %s", point["pos_uncertainty"])
+                continue
 
             latitude, longitude = point.pop("latlong")
             battery = hw_report.get("battery_level")
