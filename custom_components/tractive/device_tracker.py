@@ -139,6 +139,7 @@ class TractiveScanner:
             "x-tractive-user": self._user_credentials["user_id"],
             "authorization": f"Bearer {self._user_credentials['access_token']}",
         }
+        hw_report = []
         try:
             with async_timeout.timeout(self._timeout):
                 resp = await self._session.get(
