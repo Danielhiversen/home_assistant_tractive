@@ -206,6 +206,7 @@ class TractiveScanner:
 
     async def _async_update(self, now=None):
         for tracker_id in self._tracker_ids:
+            _LOGGER.debug("Updating %s", tracker_id)
             hw_report, result = await self._fetch_tracker_data(tracker_id)
             if not result:
                 await self.get_user_credentials()
@@ -218,6 +219,7 @@ class TractiveScanner:
             if not points:
                 _LOGGER.error("No points")
                 continue
+            _LOGGER.debug("points %s", points)
             point = points[-1]
             if point["pos_uncertainty"] > self.max_gps_accuracy:
                 _LOGGER.warning("High uncertainty, %s", point["pos_uncertainty"])
@@ -229,6 +231,7 @@ class TractiveScanner:
             hw_report.pop("_type")
             hw_report.pop("report_id")
             point.update(hw_report)
+            _LOGGER.debug("point data %s", point)
             await self.async_see(
                 dev_id=tracker_id,
                 source_type=point.pop("sensor_used"),
