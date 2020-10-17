@@ -236,7 +236,6 @@ class TractiveScanner:
                 dev_id=tracker_id,
                 source_type=point.pop("sensor_used"),
                 gps=(latitude, longitude),
-                gps_accuracy=point.pop("pos_uncertainty"),
                 icon="mdi:cat",
                 battery=battery,
                 attributes=point,
