@@ -2,7 +2,7 @@
 import asyncio
 import json
 import logging
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 import aiohttp
 import async_timeout
@@ -159,33 +159,15 @@ class TractiveScanner:
         except asyncio.TimeoutError:
             pass
 
-        try:
-            with async_timeout.timeout(self._timeout):
-                resp = await self._session.get(
-                    f"{API_URL}/tracker/{tracker_id}/positions/range", headers=headers
-                )
-            if resp.status != 200:
-                _LOGGER.error(
-                    "Error connecting to Tractive, resp code: %s %s",
-                    resp.status,
-                    resp.reason,
-                )
-                return [], None
-            result = await resp.json()
-        except aiohttp.ClientError as err:
-            _LOGGER.error("Error connecting to Tractives: %s ", err, exc_info=True)
-            raise
-        except asyncio.TimeoutError:
-            return [], None
-
-        time_from = max(result["first"], result["last"] - 3600 * 24)
+        now = datetime.timestamp(datetime.now())
+        time_from = now - 3600 * 6
 
         try:
             with async_timeout.timeout(self._timeout):
                 resp = await self._session.get(
                     f"{API_URL}/tracker/{tracker_id}//positions?"
                     f"time_from={time_from}&"
-                    f"time_to={result['last']}&"
+                    f"time_to={now}&"
                     f"format=json_segments",
                     headers=headers,
                 )
@@ -230,8 +212,10 @@ class TractiveScanner:
             hw_report.pop("_id")
             hw_report.pop("_type")
             hw_report.pop("report_id")
+            hw_report.pop("time")
             point.update(hw_report)
-            _LOGGER.debug("point data %s", point)
+            point['time'] = datetime.fromtimestamp(point['time'])
+            _LOGGER.debug("point data %s (%s, %s)", point, latitude, longitude)
             await self.async_see(
                 dev_id=tracker_id,
                 source_type=point.pop("sensor_used"),
