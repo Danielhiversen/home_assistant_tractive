@@ -214,7 +214,7 @@ class TractiveScanner:
             hw_report.pop("report_id")
             hw_report.pop("time")
             point.update(hw_report)
-            point['time'] = datetime.fromtimestamp(point['time'])
+            point["time"] = datetime.fromtimestamp(point["time"])
             _LOGGER.debug("point data %s (%s, %s)", point, latitude, longitude)
             await self.async_see(
                 dev_id=tracker_id,
