@@ -3,7 +3,7 @@
 [![GitHub Release][releases-shield]][releases]
 [![hacs_badge][hacs-shield]][hacs]
 
-Custom component for using [Tractive](https://tractive.com/) gps in Home Assistant.
+Custom component for using [Tractive](https://tractive.com/r/SI54Wd) gps in Home Assistant.
 
 [Support the developer](http://paypal.me/dahoiv)
 
