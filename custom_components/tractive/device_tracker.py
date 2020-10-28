@@ -24,6 +24,7 @@ API_URL = "https://graph.tractive.com/3"
 
 CONF_MAX_GPS_ACCURACY = "max_gps_accuracy"
 
+LAST_HOURS = 6
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
@@ -160,7 +161,7 @@ class TractiveScanner:
             pass
 
         now = datetime.timestamp(datetime.now())
-        time_from = now - 3600 * 6
+        time_from = now - 3600 * LAST_HOURS
 
         try:
             with async_timeout.timeout(self._timeout):
@@ -199,7 +200,7 @@ class TractiveScanner:
 
             points = result[0]
             if not points:
-                _LOGGER.error("No points")
+                _LOGGER.info(f"No points found for the last {LAST_HOURS} hours")
                 continue
             _LOGGER.debug("points %s", points)
             point = points[-1]
