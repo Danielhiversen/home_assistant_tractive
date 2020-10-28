@@ -200,7 +200,7 @@ class TractiveScanner:
 
             points = result[0]
             if not points:
-                _LOGGER.info(f"No points found for the last {LAST_HOURS} hours")
+                _LOGGER.info("No points found for the last %s hours", LAST_HOURS)
                 continue
             _LOGGER.debug("points %s", points)
             point = points[-1]
