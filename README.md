@@ -7,6 +7,10 @@ Custom component for using [Tractive](https://tractive.com/r/SI54Wd) gps in Home
 
 [Support the developer](http://paypal.me/dahoiv)
 
+![imgage](/img2.png)
+
+![imgage](/img1.png)
+
 
 ## Install
 Use [hacs](https://hacs.xyz/) or copy the files to the custom_components folder in Home Assistant config.
