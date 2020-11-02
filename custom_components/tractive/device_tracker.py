@@ -21,6 +21,7 @@ from homeassistant.helpers.typing import ConfigType
 _LOGGER = logging.getLogger(__name__)
 
 API_URL = "https://graph.tractive.com/3"
+X-TRACTIVE-CLIENT = "5728aa1fc9077f7c32000186"
 
 CONF_MAX_GPS_ACCURACY = "max_gps_accuracy"
 
@@ -71,7 +72,7 @@ class TractiveScanner:
     async def get_user_credentials(self):
         """Get user credentials."""
         headers = {
-            "x-tractive-client": "5728aa1fc9077f7c32000186",
+            "x-tractive-client": X-TRACTIVE-CLIENT,
             "content-type": "application/json;charset=UTF-8",
             "accept": "application/json, text/plain, */*",
         }
@@ -105,7 +106,7 @@ class TractiveScanner:
             return False
 
         headers = {
-            "x-tractive-client": "5728aa1fc9077f7c32000186",
+            "x-tractive-client": X-TRACTIVE-CLIENT,
             "content-type": "application/json;charset=UTF-8",
             "accept": "application/json, text/plain, */*",
             "x-tractive-user": self._user_credentials["user_id"],
@@ -134,7 +135,7 @@ class TractiveScanner:
 
     async def _fetch_tracker_data(self, tracker_id):
         headers = {
-            "x-tractive-client": "5728aa1fc9077f7c32000186",
+            "x-tractive-client": X-TRACTIVE-CLIENT,
             "content-type": "application/json;charset=UTF-8",
             "accept": "application/json, text/plain, */*",
             "x-tractive-user": self._user_credentials["user_id"],
