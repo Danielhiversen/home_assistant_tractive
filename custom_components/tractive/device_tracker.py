@@ -21,7 +21,7 @@ from homeassistant.helpers.typing import ConfigType
 _LOGGER = logging.getLogger(__name__)
 
 API_URL = "https://graph.tractive.com/3"
-X_TRACTIVE_CLIENT = "5728aa1fc9077f7c32000186"
+X_TRACTIVE_CLIENT = "5f9be055d8912eb21a4cd7ba"
 
 CONF_MAX_GPS_ACCURACY = "max_gps_accuracy"
 
