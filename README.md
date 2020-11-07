@@ -26,7 +26,6 @@ device_tracker:
     password: "YourPassword"
 ```
 
-
 [releases]: https://github.com/Danielhiversen/home_assistant_tractive/releases
 [releases-shield]: https://img.shields.io/github/release/Danielhiversen/home_assistant_tractive.svg?style=popout
 [downloads-total-shield]: https://img.shields.io/github/downloads/Danielhiversen/home_assistant_tractive/total
