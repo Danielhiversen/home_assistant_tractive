@@ -2,7 +2,7 @@
 import asyncio
 import json
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime
 
 import aiohttp
 import async_timeout
@@ -53,7 +53,7 @@ class TractiveScanner:
         self._username = config[CONF_USERNAME]
         self._password = config[CONF_PASSWORD]
         self.max_gps_accuracy = config[CONF_MAX_GPS_ACCURACY]
-        self.scan_interval = timedelta(seconds=config.get(CONF_SCAN_INTERVAL) or 120)
+        self.scan_interval = config.get(CONF_SCAN_INTERVAL, 120)
 
         self._user_credentials = None
         self._tracker_ids = []
