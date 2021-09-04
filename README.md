@@ -5,6 +5,8 @@
 
 Custom component for using [Tractive](https://tractive.com/r/SI54Wd) gps in Home Assistant.
 
+I recommend to start using the official integration https://www.home-assistant.io/integrations/tractive/
+
 [Support the developer](http://paypal.me/dahoiv)
 
 ![imgage](/img2.png)
