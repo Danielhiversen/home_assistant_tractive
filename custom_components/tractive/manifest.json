@@ -1,12 +1,12 @@
 
 {
-  "domain": "tractive",
-  "name": "Tractive",
+  "domain": "tractive_custom",
+  "name": "Tractive Custom",
   "documentation": "https://github.com/Danielhiversen/home_assistant_tractive",
   "requirements": [],
   "codeowners": ["@danielhiversen"],
   "issue_tracker": "https://github.com/Danielhiversen/home_assistant_tractive/issues",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "iot_class": "cloud_polling",
   "config_flow": false
 }
