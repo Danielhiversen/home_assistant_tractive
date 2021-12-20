@@ -23,7 +23,7 @@ In configuration.yaml:
 
 ```
 device_tracker:
-  - platform: tractive
+  - platform: tractive_custom
     username: "email@mail.com"
     password: "YourPassword"
 ```
